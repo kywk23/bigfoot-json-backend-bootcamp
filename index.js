@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+
 const { getSightings } = require("./utils.js");
 require("dotenv").config();
 
@@ -12,7 +13,7 @@ app.get("/sightings", async (req, res) => {
   const sightings = await getSightings();
   res.json(sightings);
 });
-
+//Sighting based on index 0-467
 app.get("/sightings/:sightingIndex", async (req, res) => {
   const { sightingIndex } = req.params;
   const sightings = await getSightings();
@@ -20,6 +21,7 @@ app.get("/sightings/:sightingIndex", async (req, res) => {
   res.json(sighting);
 });
 
+//Example:
 // app.get("/sightings/:sightingIndex", async (req, res) => {
 //   const sightings = await getSightings();
 //   res.json(sightings[req.params.sightingIndex]);
